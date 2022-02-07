@@ -3,7 +3,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
-//import javax.validation.constraints.Size;
+
 
 @Entity
 @Data
@@ -17,9 +17,9 @@ public class Account {
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customerId;
-    @ManyToOne
-    @JoinColumn(name = "account_type")
-    private AccountType accountType;
+
+    @Column(name = "account_type")
+    private String accountType;
 
     @Column(name = "account_number", nullable = false)
     private Long accountNumber;

@@ -3,10 +3,8 @@ package ee.swedb.bankacountrestapi.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+
+import javax.persistence.*;
 
 @Entity
 @Data
@@ -14,6 +12,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class Customer {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
     private Long customerId;
     @Column(name = "name", nullable = false, length = 30)
