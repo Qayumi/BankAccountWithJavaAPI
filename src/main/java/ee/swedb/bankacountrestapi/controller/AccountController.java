@@ -25,22 +25,22 @@ public class AccountController {
         this.accountServiceImp.createAccount(account);
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public List<Account> getAllAccount() {
         return accountServiceImp.findAllAccount();
     }
 
-    @PostMapping("/")
+    @PostMapping()
     public void createAccount(@RequestBody Account account) {
         this.accountServiceImp.createAccount(account);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("{id}")
     public void updateAccount(@PathVariable("id") Long accountId,@RequestBody Account account){
         this.accountServiceImp.updateAccount(accountId,account);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     public void deleteAccount(@PathVariable("id") Long accountId){
         this.accountServiceImp.deleteAccount(accountId);
     }

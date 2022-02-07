@@ -17,27 +17,27 @@ public class CustomerController {
         this.customerServiceImp = customerServiceImp;
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public List<Customer> getAllCustomers() {
         return customerServiceImp.findAllCustomer();
     }
 
-    @RequestMapping("/{id}")
+    @RequestMapping("{id}")
     public Customer getCustomerById(@PathVariable("id") Long customerId) {
         return this.customerServiceImp.findByCustomerId(customerId);
     }
 
-    @PostMapping("/")
+    @PostMapping()
     public void createCustomer(@RequestBody Customer customer) {
         this.customerServiceImp.createCustomer(customer);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("{id}")
     public Customer updateCustomer(@PathVariable("id") Long customerId, @RequestBody Customer customer) {
         return this.customerServiceImp.updateCustomer(customerId, customer);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("{id}")
     public void deleteCustomer(@PathVariable("id") Long customerId) {
         this.customerServiceImp.deleteCustomer(customerId);
     }
