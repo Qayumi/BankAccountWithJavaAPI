@@ -9,4 +9,5 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long> 
     List<Transaction> findAllByAccountId(Long accountId);
     List<Transaction> findAllByTransactionDate(LocalDateTime transactionDate);
     List<Transaction> findAllByBeneficiary(String beneficiary);
+
 }

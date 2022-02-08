@@ -16,15 +16,16 @@ public class TransactionController {
         this.transactionServiceImp = transactionServiceImp;
     }
 
-    @PostMapping("/")
+    @PostMapping()
     public void createTransaction(@RequestBody Transaction transaction) {
         this.transactionServiceImp.createTransaction(transaction);
     }
 
-    @GetMapping("/")
+    @GetMapping()
     public List<Transaction> getAllTransaction() {
         return this.transactionServiceImp.findAllTransaction();
     }
+
 
     @PutMapping("/{id}")
     public Transaction updateTransaction(@PathVariable("id") Long transactionId, @RequestBody Transaction transaction) {
@@ -34,6 +35,11 @@ public class TransactionController {
     @DeleteMapping("/{id}")
     public void deleteTransaction(@PathVariable("id") Long transactionId) {
         this.transactionServiceImp.deleteTransaction(transactionId);
+    }
+
+    @RequestMapping("/{id}")
+    public List<Transaction> getTransactionByAccountId(@PathVariable("id") Long accountId) {
+        return this.transactionServiceImp.findAllTransactionByAccountId(accountId);
     }
 
 }
