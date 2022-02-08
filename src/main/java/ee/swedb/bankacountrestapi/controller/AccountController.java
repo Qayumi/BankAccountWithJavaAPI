@@ -44,4 +44,10 @@ public class AccountController {
     public void deleteAccount(@PathVariable("id") Long accountId){
         this.accountServiceImp.deleteAccount(accountId);
     }
+
+    @RequestMapping("/{id}")
+    public Account getAccountById(@PathVariable("id") Long accountId){
+        return this.accountServiceImp.findByAccountId(accountId);
+    }
+
 }

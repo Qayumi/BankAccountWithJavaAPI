@@ -1,11 +1,11 @@
 package ee.swedb.bankacountrestapi.services.service;
-
-
 import ee.swedb.bankacountrestapi.model.Transaction;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Service
 public interface TransactionService {
     void createTransaction(Transaction transaction);
 

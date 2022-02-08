@@ -16,6 +16,7 @@ public class Transaction {
     @Column(name = "transaction_id", nullable = false)
     private Long transactionId;
 
+
     @JoinColumn(name = "account_id",nullable = false)
     private Long accountId;
 

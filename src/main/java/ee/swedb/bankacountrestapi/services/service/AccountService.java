@@ -1,9 +1,11 @@
 package ee.swedb.bankacountrestapi.services.service;
 
 import ee.swedb.bankacountrestapi.model.Account;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface AccountService {
     void createAccount(Account account);
     void deleteAccount(Long accountId);

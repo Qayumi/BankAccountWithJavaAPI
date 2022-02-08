@@ -1,9 +1,11 @@
 package ee.swedb.bankacountrestapi.services.service;
 
 import ee.swedb.bankacountrestapi.model.Customer;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface CustomerService {
     void createCustomer(Customer customer);
     void deleteCustomer(Long customerId);

@@ -1,6 +1,4 @@
 package ee.swedb.bankacountrestapi.services.serviceImp;
-
-
 import ee.swedb.bankacountrestapi.model.Transaction;
 import ee.swedb.bankacountrestapi.repository.TransactionRepository;
 import ee.swedb.bankacountrestapi.services.service.TransactionService;
