@@ -12,13 +12,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Transaction {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name = "transaction_id", nullable = false)
     private Long transactionId;
-
-
+    @ManyToOne
     @JoinColumn(name = "account_id",nullable = false)
-    private Long accountId;
+    private Account accountId;
 
     @Column(name = "amount", nullable = false)
     private Long amount;
