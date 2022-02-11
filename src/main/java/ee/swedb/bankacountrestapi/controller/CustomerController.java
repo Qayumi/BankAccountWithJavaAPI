@@ -28,8 +28,9 @@ public class CustomerController {
     }
 
     @PostMapping()
-    public void createCustomer(@RequestBody Customer customer) {
-        this.customerServiceImp.createCustomer(customer);
+    public void createCustomer(@RequestBody Customer customer)
+    {this.customerServiceImp.createCustomer(customer);
+        System.out.println(customer);
     }
 
     @PutMapping("{id}")

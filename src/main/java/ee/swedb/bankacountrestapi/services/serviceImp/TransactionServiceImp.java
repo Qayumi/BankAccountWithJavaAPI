@@ -1,5 +1,7 @@
 package ee.swedb.bankacountrestapi.services.serviceImp;
+import ee.swedb.bankacountrestapi.model.Account;
 import ee.swedb.bankacountrestapi.model.Transaction;
+import ee.swedb.bankacountrestapi.repository.AccountRepository;
 import ee.swedb.bankacountrestapi.repository.TransactionRepository;
 import ee.swedb.bankacountrestapi.services.service.TransactionService;
 import org.springframework.stereotype.Service;
@@ -10,9 +12,11 @@ import java.util.List;
 @Service
 public class TransactionServiceImp implements TransactionService {
     private TransactionRepository transactionRepository;
+    private AccountRepository accountRepository;
 
-    public TransactionServiceImp(TransactionRepository transactionRepository) {
+    public TransactionServiceImp(TransactionRepository transactionRepository, AccountRepository accountRepository) {
         this.transactionRepository = transactionRepository;
+        this.accountRepository = accountRepository;
     }
 
     @Override
@@ -32,7 +36,7 @@ public class TransactionServiceImp implements TransactionService {
         updateTransaction.setTransactionDate(transaction.getTransactionDate());
         updateTransaction.setTransactionDetails(transaction.getTransactionDetails());
         updateTransaction.setBeneficiary(transaction.getBeneficiary());
-        updateTransaction.setAccountId(transaction.getAccountId());
+        updateTransaction.setAccount(transaction.getAccount());
         updateTransaction.setAmount(transaction.getAmount());
 
         return this.transactionRepository.save(transaction);
@@ -45,7 +49,8 @@ public class TransactionServiceImp implements TransactionService {
 
     @Override
     public List<Transaction> findAllTransactionByAccountId(Long accountId) {
-        return this.transactionRepository.findAllByAccountId(accountId);
+        Account account = this.accountRepository.findByAccountId(accountId).orElseThrow();
+        return this.transactionRepository.findAllByAccount(account);
     }
 
     @Override

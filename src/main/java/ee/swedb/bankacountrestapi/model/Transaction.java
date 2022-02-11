@@ -17,10 +17,10 @@ public class Transaction {
     private Long transactionId;
     @ManyToOne
     @JoinColumn(name = "account_id",nullable = false)
-    private Account accountId;
+    private Account account;
 
-    @Column(name = "amount", nullable = false)
-    private Long amount;
+    @Column(name = "amount", nullable = false, precision=10, scale=2)
+    private Double amount;
 
     @Column(name = "transaction_date",nullable = false)
     private LocalDateTime transactionDate;

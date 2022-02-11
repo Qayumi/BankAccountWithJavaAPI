@@ -25,7 +25,7 @@ public class AccountServiceImp implements AccountService {
     @Override
     public Account updateAccount(Long accountId, Account account) {
         Account updateAccount= this.accountRepository.findByAccountId(accountId).orElseThrow();
-        updateAccount.setCustomerId(account.getCustomerId());
+        updateAccount.setCustomer(account.getCustomer());
         updateAccount.setAccountType(account.getAccountType());
         updateAccount.setAccountNumber(account.getAccountNumber());
         updateAccount.setBalance(account.getBalance());
@@ -50,7 +50,7 @@ public class AccountServiceImp implements AccountService {
 
     @Override
     public Account findByCustomerId(Long customerId) {
-        return this.accountRepository.findByCustomerId(customerId).orElseThrow(() ->
+        return this.accountRepository.findByCustomer(customerId).orElseThrow(() ->
                 new NotFoundException("Account by customer " + customerId + " id was not found."));
     }
 

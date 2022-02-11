@@ -17,7 +17,7 @@ public class Account {
     private Long accountId;
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    private Customer customerId;
+    private Customer customer;
 
     @Column(name = "account_type")
     private String accountType;
@@ -25,6 +25,6 @@ public class Account {
     @Column(name = "account_number", nullable = false)
     private Long accountNumber;
 
-    @Column(name = "balance",nullable = false)
-    private Long balance;
+    @Column(name = "balance",nullable = false, precision=10, scale=2)
+    private Double balance;
 }
