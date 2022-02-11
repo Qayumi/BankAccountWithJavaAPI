@@ -3,6 +3,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 
 @Entity
@@ -25,6 +26,6 @@ public class Account {
     @Column(name = "account_number", nullable = false)
     private Long accountNumber;
 
-    @Column(name = "balance",nullable = false, precision=10, scale=2)
-    private Double balance;
+    @Column(name = "balance",nullable = false, precision=12, scale=2)
+    private BigDecimal balance;
 }

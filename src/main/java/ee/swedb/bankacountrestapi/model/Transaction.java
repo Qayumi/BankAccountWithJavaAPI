@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -20,7 +21,7 @@ public class Transaction {
     private Account account;
 
     @Column(name = "amount", nullable = false, precision=10, scale=2)
-    private Double amount;
+    private BigDecimal amount;
 
     @Column(name = "transaction_date",nullable = false)
     private LocalDateTime transactionDate;

@@ -7,6 +7,8 @@ import ee.swedb.bankacountrestapi.services.serviceImp.AccountServiceImp;
 import ee.swedb.bankacountrestapi.services.serviceImp.CustomerServiceImp;
 import ee.swedb.bankacountrestapi.services.serviceImp.TransactionServiceImp;
 import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -25,10 +27,11 @@ public class AccountController {
         this.transactionServiceImp=transactionServiceImp;
         Customer customer=new Customer(1L,"admin","admin","admin@admin.com","123456");
         this.customerServiceImp.createCustomer(customer);
-        Account account=new Account(1L,customer,"EUR",123456L,100.00);
+        BigDecimal a = new BigDecimal("0.03");
+        Account account=new Account(1L,customer,"EUR",123456L,a);
         this.accountServiceImp.createAccount(account);
         LocalDateTime localDateTime=LocalDateTime.now();
-        Transaction transaction=new Transaction(1L, account, 20.00,localDateTime, "Remi","To buy food");
+        Transaction transaction=new Transaction(1L, account, a,localDateTime, "Remi","To buy food");
         this.transactionServiceImp.createTransaction(transaction);
     }
 
